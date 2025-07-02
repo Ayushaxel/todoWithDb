@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="box">
+        <h1>Todo List</h1>
+    </div>
+
+    <div class="box">
+        <%dayej.forEach((item)=>{ %>
+            
+                <div class="item">
+                    <p>
+                        <%=item.name %>
+                    </p>
+                    <div>
+                        <a href="/edit/<%= item._id %>">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </a>
+                        <a href="/delete/<%= item._id %>">
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </a>
+                    </div>
+
+
+                </div>
+    
+
+
+            <% })%>
+
+
+
+
+
+                <form action="/" method="post">
+                    <input type="text" name="name" placeholder="Enter Task">
+                    <button type="submit">+</button>
+                </form>
+    </div>
+    <script>
+          <% if (showAlert) { %>
+            alert("Task updated successfully!");
+            <% } %>
+
+
+
+         <% if (deleteAlert) { %>
+            alert("Task deleted successfully!");
+        <% } %>
+    </script>
+</body>
+
+</html>
